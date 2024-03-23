@@ -13,7 +13,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        return view('blogCrud.tag.index',compact('tags'));
     }
 
     /**
@@ -21,7 +22,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('blogCrud.tag.createAndEdit');
     }
 
     /**
@@ -29,7 +30,8 @@ class TagController extends Controller
      */
     public function store(StoreTagRequest $request)
     {
-        //
+        $tag = Tag::create($request->all());
+        return redirect()->route("tags")->with("success","");
     }
 
     /**
@@ -45,7 +47,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('blogCrud.tag.createAndEdit', compact('tag'));
     }
 
     /**
@@ -53,7 +55,8 @@ class TagController extends Controller
      */
     public function update(UpdateTagRequest $request, Tag $tag)
     {
-        //
+        $tag->update($request->all());
+        return redirect()->route("tags")->with("success","");
     }
 
     /**
@@ -61,6 +64,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+        return redirect()->route("tags")->with("success","");
     }
 }

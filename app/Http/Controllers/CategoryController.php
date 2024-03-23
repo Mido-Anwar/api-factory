@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories= Category::all();
+        return view('blogCrud.category.index',compact('categories'));
     }
 
     /**
@@ -21,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('blogCrud.category.createAndEdit');
     }
 
     /**
@@ -29,7 +30,8 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $category = Category::create($request->all());
+        return redirect()->route("categories")->with("success","");
     }
 
     /**
@@ -45,7 +47,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('blogCrud.category.createAndEdit', compact('category'));
     }
 
     /**
@@ -53,7 +55,8 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        return redirect()->route("categories")->with("success", "");
     }
 
     /**
@@ -61,6 +64,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route("categories")->with("success", "");
     }
 }

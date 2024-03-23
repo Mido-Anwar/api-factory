@@ -1,5 +1,34 @@
-
-
+//buttons
+.btn-btn {
+    padding: 0.75rem;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+    width: 5rem;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+.btn-green {
+    background-color: rgb(22, 90, 22);
+    color: aliceblue;
+}
+.btn-red {
+    background-color: rgb(158, 23, 23);
+    color: antiquewhite;
+}
+.btn-blue {
+    background-color: rgb(1, 1, 255);
+    color: antiquewhite;
+}
+.btn-black {
+    background-color: rgb(1, 1, 0);
+    color: antiquewhite;
+}
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
 // this is modelCrudLayout css
 .model-crud-form-page {
     width: 100%;
@@ -17,14 +46,52 @@
         flex-direction: column;
         width: 100%;
         height: 180px;
-        background-color: #c6d1d7;
-        div {
+        background-color: #accfe6;
+        .header {
             width: 100%;
             height: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        .link {
+            width: 100%;
+            height: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 10px;
+        }
+        @media screen and (max-width: 600px) {
+            .header {
+                font-size: 20px;
+            }
         }
     }
-    .content{
+    .content {
         width: 100%;
         min-height: 100vb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 60%;
+            border: #9599e2 2px solid;
+
+            input {
+                margin-bottom: 20px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            form {
+                width: 80%;
+            }
+        }
     }
 }

@@ -20,15 +20,13 @@
 <body>
     <section class="model-crud-form-page">
         <!-- Page Heading -->
-        @if (isset($header))
+        @if (isset($header) || isset($link))
             <header class="navBar">
                 <div class="header">
-                
-                        {{ $header }}
-
+                    {{ $header }}
                 </div>
-                <div>
-                    mido
+                <div class="link">
+                    {{ $link }}
                 </div>
             </header>
         @endif
