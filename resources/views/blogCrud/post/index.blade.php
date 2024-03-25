@@ -21,7 +21,7 @@
                         id
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        name
+                    title
                     </th>
                     <th scope="col" class="px-6 py-3">
                         action
@@ -38,7 +38,7 @@
                         <th scope="row"
                             class="px-6 py-4 text-wrap font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $post->title }}
-                         
+
                         </th>
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">

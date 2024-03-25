@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class PostController extends Controller
 {
     /**
@@ -16,11 +18,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        $categories= Category::all();
-        $tags= Tag::all();
-        return view('blogCrud.post.index',compact('posts','categories','tags'));
-
+        $posts = Post::all("id","title","content");
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('blogCrud.post.index', compact('posts', 'categories', 'tags'));
     }
 
     /**
@@ -28,10 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        $tags =Tag::all();
-        return view('blogCrud.post.createAndEdit',compact('categories','tags'));
-
+        $categories = Category::all("id","name");
+        $tags = Tag::all("id","name");
+        return view('blogCrud.post.createAndEdit', compact('categories', 'tags'));
     }
 
     /**
@@ -63,9 +63,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $categories = Category::all();
-        $tags =Tag::all();
-        return view('blogCrud.post.createAndEdit',compact('post','categories','tags'));
+        $categories = Category::all("id","name");
+        $tags = Tag::all("id","name");
+        $count = 0;
+        return view('blogCrud.post.createAndEdit', compact('post', 'categories', 'tags', 'count'));
     }
 
     /**
